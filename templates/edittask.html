@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Task Tracker - Edit task</title>
+	</head>
+	<body>
+		<h1>Edit task</h1>
+		<form action="{{ url_for('edit_task', id=task.id) }}" method="POST">
+			<input type="hidden" name="_method" value="PUT">
+			<label for="title">Task</label>
+			<label for="status">Status</label><br>
+			<input type="text" name="title" value="{{ task.title }}">
+			<select id="status" name="status" value="{{ task.status }}">
+				<option value="Todo">To do</option>
+				<option value="In progress">In progress</option>
+				<option value="Complete">Complete</option>
+			</select>
+			<input type="submit" value="Submit">
+		</form>
+		<a href="/"><button>Cancel</button></a>
+	</body>
+</html>

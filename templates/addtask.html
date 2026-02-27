@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Task Tracker - Add task</title>
+	</head>
+	<body>
+		<h1>Add new task</h1>
+		<form action="/addtask" method="POST">
+			<label for="title">Task</label>
+			<label for="status">Status</label><br>
+			<input type="text" name="title">
+			<select name="status">
+				<option value="todo">To do</option>
+				<option value="inprogress">In progress</option>
+				<option value="complete">Complete</option>
+			</select>
+			<input type="submit" value="Submit">
+		</form>
+		<a href="/"><button>Cancel</button></a>
+	</body>
+</html>
