@@ -14,6 +14,9 @@ def add_task():
 
 	if request.method == "POST":
 
+		if not request.form["title"] or not request.form["status"]:
+			return render_template("adderror.html")
+
 		task = {
 		"id": len(tasks) + 1,
 		"title": request.form["title"],
@@ -33,6 +36,10 @@ def edit_task(id):
 	if request.method == "POST":
 		method = request.form.get("_method", "POST").upper()
 		if method == "PUT":
+
+			if not request.form["title"] or not request.form["status"]:
+				return render_template("editerror.html", task=task)
+
 			task["title"] = request.form["title"]
 			task["status"] = request.form["status"]
 

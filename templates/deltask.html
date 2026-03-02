@@ -3,14 +3,15 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 		<title>Task Tracker - Delete task</title>
 	</head>
 	<body>
 		<form action="{{ url_for('del_task', id=task.id) }}" method="POST">
 			<input type="hidden" name="_method" value="DELETE">
 			<h1>Are you sure you want to delete the task?</h1>
-			<input type="submit" value="Yes">
+			<input type="submit" value="Yes" id="submit">
+			<a href="{{ url_for('dashboard') }}"><button type="button" id="cancel">No</button></a>
 		</form>
-	<a href="{{ url_for('dashboard') }}"><button>No</button></a>
 	</body>
 </html>
